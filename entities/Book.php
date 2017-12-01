@@ -2,14 +2,14 @@
 // creat class
 class Book
 {
-    protected $id_book;
+    protected $id;
     protected $id_user;
     protected $title;
     protected $author;
-    protected $date_of_publication;
+    protected $dates;
     protected $category;
     protected $availability;
-    protected $abstract;
+    protected $resum;
 
 
 
@@ -34,9 +34,9 @@ class Book
      *
      * @return mixed
      */
-    public function getIdBook()
+    public function getId()
     {
-        return $this->id_book;
+        return $this->id;
     }
 
     /**
@@ -46,9 +46,9 @@ class Book
      *
      * @return self
      */
-    public function setIdBook($id_book)
+    public function setId($id)
     {
-        $this->id_book = $id_book;
+        $this->id = $id;
 
         return $this;
     }
@@ -126,25 +126,25 @@ class Book
     }
 
     /**
-     * Get the value of Date Of Publication
+     * Get the value of Date
      *
      * @return mixed
      */
-    public function getDateOfPublication()
+    public function getDates()
     {
-        return $this->date_of_publication;
+        return $this->dates;
     }
 
     /**
-     * Set the value of Date Of Publication
+     * Set the value of Date
      *
-     * @param mixed date_of_publication
+     * @param mixed date
      *
      * @return self
      */
-    public function setDateOfPublication($date_of_publication)
+    public function setDates($dates)
     {
-        $this->date_of_publication = $date_of_publication;
+        $this->dates = $dates;
 
         return $this;
     }
@@ -202,21 +202,21 @@ class Book
      *
      * @return mixed
      */
-    public function getAbstract()
+    public function getResum()
     {
-        return $this->abstract;
+        return $this->resum;
     }
 
     /**
-     * Set the value of Abstract
+     * Set the value of resum
      *
-     * @param mixed abstract
+     * @param mixed Resum
      *
      * @return self
      */
-    public function setAbstract($abstract)
+    public function setResum($resum)
     {
-        $this->abstract = $abstract;
+        $this->resum = $resum;
 
         return $this;
     }
