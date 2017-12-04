@@ -43,4 +43,14 @@
       ));
           return $book = $response->fetch();
       }
+
+
+      public function sort($category)
+      {
+          $response= $this->getBdd()->prepare("SELECT * FROM book WHERE category= :category");
+          $response->execute(array(
+          "category"=>$category,
+      ));
+          return $book = $response->fetch();
+      }
   }

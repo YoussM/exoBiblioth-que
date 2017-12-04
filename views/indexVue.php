@@ -41,7 +41,7 @@
   <div class="form-group">
       <label class="control-label col-sm-2" for="name">availability:</label>
       <div class="col-sm-10">
-      <input class="form-control" type="checkbox" name="availability" value="1" >
+      <input class="form-control" type="checkbox" name="availability" value="yes" >
     </div>
   </div>
 
@@ -59,30 +59,53 @@
   </div>
     </div>
 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Book
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <?php foreach ($books as $key => $value): ?>
-            <a class="dropdown-item" href="thisBook.php?id=<?php echo $value->getId()?>"><?php echo $value->getTitle()?></a>
-        <?php endforeach; ?>
+    <div class="tableau">
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Catégory</th>
+      <th>availability</th>
 
+    </tr>
+  </thead>
 
+  <tbody>
+    <?php foreach ($books as $key => $value): ?>
 
+    <tr>
+      <th scope="row"><?php echo $value->getId()?></th>
+      <td><a href="thisBook.php?id=<?php echo $value->getId()?>" ><?php echo $value->getTitle()?></a></td>
+      <td><?php echo $value->getAuthor()?></td>
+      <td><?php echo $value->getCategory()?></td>
+      <td><?php echo $value->getAvailability()?></td>
+
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+
+</table>
 
       </div>
     </div>
+
     <div class="form-group">
       <label class="control-label col-sm-2" for="type">Type:</label>
       <div class="col-sm-10">
+        <form class="" action="index.php" method="post">
         <select class="" name="type" id="type" required>
           <option value="Roman">Roman</option>
           <option value="Aventure">Aventure</option>
           <option value="Polar">Polar</option>
           <option value="Science-Fiction">Science-Fiction</option>
           <option value="Horreur">Horreur</option>
-          </select>
+          <option value="BD">BD</option>
+        </select>
+        <button class= "btn btn-primary" type="submit" name="button" id="btn-send">send</button>
+      </form>
+
         </div>
       </div>
    </body>
