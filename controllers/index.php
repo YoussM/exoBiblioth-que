@@ -12,9 +12,7 @@ require("../model/bookManager.php");
 $manager= new BookManager;
 
 $books = $manager->getAllbook();
-foreach ($books as $key => $value) {
-    $books[$key]=new Book($value);
-}
+
 
 // condition for add book
 if (isset($_POST["button"])) {
@@ -27,14 +25,15 @@ if (isset($_POST["button"])) {
 }
 
 // function trie Category
-//
-// if (isset($_POST["category"])) {
-//     $manager->sort($_POST["type"]);
-//     foreach ($trieBook as $key => $value) {
-//         $trieBook[$key]=new Book($value);
-//         header("refresh:0");
-//     }
-// }
 
+if (isset($_POST["type"])) {
+    $books=[];
+    $books[]=$manager->sort($_POST["type"]);
+}
+if ($books[0]) {
+    foreach ($books as $key => $value) {
+        $books[$key]=new Book($value);
+    }
+}
 
 include "../views/indexVue.php";

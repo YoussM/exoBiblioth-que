@@ -33,7 +33,7 @@
 
       ));
       }
-
+      // function for addBook
       public function getBook($id)
       {
           $response= $this->getBdd()->prepare("SELECT * FROM book WHERE id= :id");
@@ -44,7 +44,7 @@
           return $book = $response->fetch();
       }
 
-
+      // function for trie category
       public function sort($category)
       {
           $response= $this->getBdd()->prepare("SELECT * FROM book WHERE category= :category");

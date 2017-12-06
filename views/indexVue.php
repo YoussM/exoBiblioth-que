@@ -73,17 +73,23 @@
   </thead>
 
   <tbody>
-    <?php foreach ($books as $key => $value): ?>
+    <?php
+    if ($books[0]) {
+        foreach ($books as $key => $value): ?>
 
     <tr>
       <th scope="row"><?php echo $value->getId()?></th>
       <td><a href="thisBook.php?id=<?php echo $value->getId()?>" ><?php echo $value->getTitle()?></a></td>
       <td><?php echo $value->getAuthor()?></td>
       <td><?php echo $value->getCategory()?></td>
-      <td><?php echo $value->getAvailability()?></td>
+      <td><?php echo $value->getAvailability()==1 ?"yes":"no"; ?></td>
+
 
     </tr>
-    <?php endforeach; ?>
+    <?php endforeach;
+    } else {
+        echo "<tr><td>aucun livre trouver</td></tr>";
+    } ?>
   </tbody>
 
 </table>
@@ -96,14 +102,14 @@
       <div class="col-sm-10">
         <form class="" action="index.php" method="post">
         <select class="" name="type" id="type" required>
-          <option value="Roman">Roman</option>
-          <option value="Aventure">Aventure</option>
-          <option value="Polar">Polar</option>
-          <option value="Science-Fiction">Science-Fiction</option>
-          <option value="Horreur">Horreur</option>
-          <option value="BD">BD</option>
+          <option value="roman">Roman</option>
+          <option value="aventure">Aventure</option>
+          <option value="polar">Polar</option>
+          <option value="science-Fiction">Science-Fiction</option>
+          <option value="horreur">Horreur</option>
+          <option value="bd">BD</option>
         </select>
-        <button class= "btn btn-primary" type="submit" name="button" id="btn-send">send</button>
+        <button class= "btn btn-primary" type="submit" name="buttons" id="btn-send">send</button>
       </form>
 
         </div>

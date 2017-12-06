@@ -7,20 +7,15 @@ spl_autoload_register("loadClass");
 
 require("../model/bookManager.php");
 
-//book manager
+//new object
 $manager = new BookManager;
 
-// si il y a du get
+// condition of display card book
 if (isset($_GET["id"])) {
     $book = $manager->getBook($_GET["id"]);
     $book = new Book($book);
-} else {
-    if (empty($book)) {
-        $erreur="aucun livre";
-        return $erreur;
-    }
 }
 
 include "../views/bookVue.php";
 
-    //header("refresh:0");
+    header("refresh:0");
