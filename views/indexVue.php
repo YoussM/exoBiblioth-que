@@ -105,7 +105,7 @@
           <option value="roman">Roman</option>
           <option value="aventure">Aventure</option>
           <option value="polar">Polar</option>
-          <option value="science-Fiction">Science-Fiction</option>
+          <option value="science Fiction">Science-Fiction</option>
           <option value="horreur">Horreur</option>
           <option value="bd">BD</option>
         </select>

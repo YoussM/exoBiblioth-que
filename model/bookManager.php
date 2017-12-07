@@ -53,4 +53,16 @@
       ));
           return $book = $response->fetch();
       }
+
+      // function for disponibility
+      public function availability($book, $nameUser)
+      {
+          $response=$this->getBdd()->prepare("UPDATE book SET availability=:availability, id_user=(SELECT id_user FROM user WHERE name=:name) WHERE id=:id");
+          $response->execute(array(
+          "availability"=>$book->getAvailability(),
+          "id"=>$book->getId(),
+          "name"=>$nameUser
+
+          ));
+      }
   }
